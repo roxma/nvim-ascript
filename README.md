@@ -36,7 +36,7 @@ call ascript#py3_call('greet', 'roxma')
 A list of methods:
 
 - `ascript#py3_call(fn, ...)`
-- `ascript#py(fn, ...)`
+- `ascript#py_call(fn, ...)`
 - `ascript#py3(script)`
 - `ascript#py(script)`
 - `ascript#ruby(script)`
