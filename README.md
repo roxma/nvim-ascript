@@ -31,15 +31,25 @@ Plug 'roxma/nvim-ascript'
 ## Usage
 
 ```vim
-call ascript#python3("import vim")
-call ascript#python3("vim.command('echo &rtp')")
-" add a delay
-call ascript#python3("for i in range(100000000):\n  pass\nvim.command('echo &rtp')")
+python3 << EOF
+def greet(name):
+    import vim
+    from time import time
+    t = time()
+    # delay
+    while t + 3 >= time():
+        pass
+    vim.command("echo 'hi %s'" % name)
+EOF
+
+call ascript#py3_call('greet', 'roxma')
 ```
 
 A list of methods:
 
+- `ascript#py3_call(fn, ...)`
+- `ascript#py(fn, ...)`
+- `ascript#py3(script)`
+- `ascript#py(script)`
 - `ascript#ruby(script)`
-- `ascript#python3(script)`
-- `ascript#python(script)`
 

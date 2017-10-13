@@ -7,26 +7,62 @@ if get(g:, 'ascript#loaded', 0)
 endif
 let ascript#loaded = 1
 
-let s:python_init = 0
-let s:python3_init = 0
 let s:ruby_init = 0
 
-func! ascript#python(script)
-    if !s:python_init
-        python pass
-        let s:python_init = 1
-    endif
-    let s:host = remote#host#Require('legacy-python-provider')
-    call rpcnotify(s:host, 'python_execute_async', a:script, line('.'), line('.'))
+func! ascript#py_call(fn, ...)
+python << EOF
+import vim
+def handler(fn, *args):
+    eval(fn)(*args)
+fn, args = vim.eval('[a:fn, a:000]')
+vim.async_call(handler, fn, *args)
+EOF
 endfunc
 
-func! ascript#python3(script)
-    if !s:python3_init
-        python3 pass
-        let s:python3_init = 1
-    endif
-    let s:host = remote#host#Require('legacy-python3-provider')
-    call rpcnotify(s:host, 'python_execute_async', a:script, line('.'), line('.'))
+func! ascript#python_call(...)
+    call call('ascript#py_call', a:000)
+endfunc
+
+func! ascript#py3_call(fn, ...)
+python3 << EOF
+import vim
+def handler(fn, *args):
+    eval(fn)(*args)
+fn, args = vim.eval('[a:fn, a:000]')
+vim.async_call(handler, fn, *args)
+EOF
+endfunc
+
+func! ascript#python3_call(...)
+    call call('ascript#py3_call', a:000)
+endfunc
+
+func! ascript#py(script)
+python << EOF
+import vim
+def handler(script):
+    exec(script)
+script = vim.eval('a:script')
+vim.async_call(handler, script)
+EOF
+endfunc
+
+func! ascript#python(...)
+    call call('ascript#py', a:000)
+endfunc
+
+func! ascript#py3(script)
+python3 << EOF
+import vim
+def handler(script):
+    exec(script)
+script = vim.eval('a:script')
+vim.async_call(handler, script)
+EOF
+endfunc
+
+func! ascript#python3(...)
+    call call('ascript#py3', a:000)
 endfunc
 
 func! ascript#ruby(script)
