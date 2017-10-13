@@ -3,6 +3,11 @@
 Run async python script easily without using neovim's rplugin or job feature
 explicitly.
 
+## Motivation
+
+To be honest, I don't like neovim's `UpdateRemotePlugins`, and sometims I just
+want a small fragment of python/ruby code to be run async.
+
 ## Requirements
 
 As a proof of concept, currently this plugin requires a modified version of
