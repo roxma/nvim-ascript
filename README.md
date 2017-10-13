@@ -8,18 +8,6 @@ explicitly.
 To be honest, I don't like neovim's `UpdateRemotePlugins`, and sometims I just
 want a small fragment of python/ruby code to be run async.
 
-## Requirements
-
-As a proof of concept, currently this plugin requires a modified version of
-neovim python client:
-
-```
-git clone https://github.com/roxma/python-client.git
-cd python-client
-pip uninstall neovim
-pip install --user -e .
-```
-
 ## Installation
 
 Assuming you're using [vim-plug](https://github.com/junegunn/vim-plug)
