@@ -33,7 +33,7 @@ EOF
 call ascript#py3call('greet', 'roxma')
 ```
 
-A list of methods:
+## Functions
 
 Recommended:
 
