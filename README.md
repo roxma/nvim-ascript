@@ -24,7 +24,7 @@ def greet(name):
     import vim
     from time import time
     t = time()
-    # delay
+    # delay for about 3s
     while t + 3 >= time():
         pass
     vim.command("echo 'hi %s'" % name)
