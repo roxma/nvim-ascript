@@ -5,7 +5,7 @@ explicitly.
 
 ## Requirements
 
-As a prove of concept, currently this plugin requires a modified version of
+As a proof of concept, currently this plugin requires a modified version of
 neovim python client:
 
 ```
