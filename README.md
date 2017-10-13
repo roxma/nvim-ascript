@@ -37,3 +37,9 @@ call ascript#python3("vim.command('echo &rtp')")
 call ascript#python3("for i in range(100000000):\n  pass\nvim.command('echo &rtp')")
 ```
 
+A list of methods:
+
+- `ascript#ruby(script)`
+- `ascript#python3(script)`
+- `ascript#python(script)`
+
