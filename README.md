@@ -36,7 +36,7 @@ call ascript#py3call('greet', 'roxma')
 **Warning: Neovim's python script host uses greenlet, but it should still be
 considered single-threaded. So there're chances that it will interfere with
 other plugins using `:python` or `python3` feature, and then block the ui.  Be
-careful with long run jobs. ** 
+careful with long run jobs.** 
 
 ## Functions
 
