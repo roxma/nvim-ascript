@@ -30,13 +30,24 @@ def greet(name):
     vim.command("echo 'hi %s'" % name)
 EOF
 
-call ascript#py3_call('greet', 'roxma')
+call ascript#py3call('greet', 'roxma')
 ```
 
 A list of methods:
 
-- `ascript#py3_call(fn, ...)`
-- `ascript#py_call(fn, ...)`
+Recommended:
+
+- `ascript#py3call(fn, ...)`
+- `ascript#pycall(fn, ...)`
+
+Suger missing in nvim's standard functions, note that these are not async
+functions.
+
+- `script#py3call(fn, ...)`
+- `script#pycall(fn, ...)`
+
+Others:
+
 - `ascript#py3(script)`
 - `ascript#py(script)`
 - `ascript#ruby(script)`

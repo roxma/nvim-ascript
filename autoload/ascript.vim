@@ -9,7 +9,7 @@ let ascript#loaded = 1
 
 let s:ruby_init = 0
 
-func! ascript#py_call(fn, ...)
+func! ascript#pycall(fn, ...)
 python << EOF
 import vim
 def handler(fn, *args):
@@ -20,10 +20,10 @@ EOF
 endfunc
 
 func! ascript#python_call(...)
-    call call('ascript#py_call', a:000)
+    call call('ascript#pycall', a:000)
 endfunc
 
-func! ascript#py3_call(fn, ...)
+func! ascript#py3call(fn, ...)
 python3 << EOF
 import vim
 def handler(fn, *args):
@@ -34,7 +34,7 @@ EOF
 endfunc
 
 func! ascript#python3_call(...)
-    call call('ascript#py3_call', a:000)
+    call call('ascript#py3call', a:000)
 endfunc
 
 func! ascript#py(script)
